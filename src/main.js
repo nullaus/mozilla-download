@@ -48,14 +48,26 @@ parser.addArgument(['dest'], {
   type: 'string'
 });
 
+function getFolderForProduct(product) {
+  const productFolderName = {
+    'b2g-desktop': 'b2g',
+    'firefox': 'firefox',
+    'mulet': 'firefox'
+  };
+
+  return productFolderName[product] || null;
+}
+
 export default async function main(args=parser.parseArgs()) {
   try {
     // Bail if thing exists
     try {
       let contents = await readdir(args.dest);
-      if (contents && contents.length) {
+      if (contents &&
+          contents.length &&
+          contents.indexOf(getFolderForProduct(args.product)) !== -1) {
         // We have dest dir and it has contents
-        debug('Found b2g at dest', args.dest);
+        debug('Found', args.product, 'at dest', args.dest);
         return;
       }
     } catch (error) {
