@@ -1,6 +1,6 @@
 {
-  "name": "mozilla-download",
-  "version": "1.1.0",
+  "name": "moz-download",
+  "version": "1.2.3",
   "description": "Download firefox/b2g-desktop runtimes",
   "license": "MIT",
   "main": "bin/mozilla-download",
@@ -10,6 +10,7 @@
   },
 
   "contributors": [
+    "Aus Lacroix [:nullaus] <aus@mozilla.com>",
     "Gareth Aye [:gaye] <gaye@mozilla.com>",
     "James Lal [:lightsofapollo] <jlal@mozilla.com>"
   ],

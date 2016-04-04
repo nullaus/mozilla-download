@@ -24,7 +24,9 @@ export function archiveFiletype(os, product) {
 export function archiveFileSuffix(product, os) {
   let ospart = (product === 'firefox' && os === 'mac64') ? 'mac' : os;
   let filetype = archiveFiletype(os, product);
-  if (product.indexOf('emulator') !== -1) {
+  if (product.indexOf('emulator') !== -1 ||
+      (product.indexOf('mulet') !== -1 &&
+       os === 'linux-x86_64')) {
     // emulator doesn't have os in filename
     return filetype;
   }
